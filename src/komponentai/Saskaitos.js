@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import Saskaita from './Saskaita'
 
-export default class Saskaita extends React.Component {
-    state = {
-      saskaitos: []
+ class Saskaitos extends React.Component {
+
+  state ={
+      saskaitos:[]
     }
+   
+  
   
     componentDidMount() {
       axios.get(`http://localhost:8080/saskaitos`)
@@ -15,11 +19,17 @@ export default class Saskaita extends React.Component {
         })
     }
   
-    render() {
-      return (
-        <ul>
-          { this.state.saskaitos.map(person => <li>{person.numeris}</li>)}
-        </ul>
+   
+    render(){
+      let fakturos = this.state.saskaitos.map((saskaita)=>{
+          return  <Saskaita key={saskaita.id} saskaita={saskaita}/>
+      })
+      return(
+          <ul>
+              {fakturos}
+          </ul>
       )
-    }
   }
+
+  }
+  export default Saskaitos;
