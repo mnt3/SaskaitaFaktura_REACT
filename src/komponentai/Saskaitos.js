@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Saskaita from './Saskaita'
+import './Saskaitos.css'
 
  class Saskaitos extends React.Component {
 
@@ -25,9 +26,11 @@ import Saskaita from './Saskaita'
           return  <Saskaita key={saskaita.id} saskaita={saskaita}/>
       })
       return(
-          <ul>
-              {fakturos}
-          </ul>
+        
+          <table>
+          {fakturos}
+          </table>
+          
       )
   }
 

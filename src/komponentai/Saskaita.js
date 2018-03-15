@@ -1,17 +1,40 @@
 import React from 'react';
+import axios from 'axios';
 
-const saskaita =(props)=>{
+
+class saskaita extends React.Component{
+    SaskaitosTrinimas=()=>{
+        console.log("bandysiu trinti "+this.props.saskaita.id);
+         axios.delete(`http://localhost:8080/saskaitos/`+this.props.saskaita.id)
+           .then(res => {
+             console.log(res);
+             console.log(res.data);
+             window.location.reload();
+           })
+    
+    }
+
+    render(){
     return(
-        <ul>
-            <div>
-            <p>Numeris saskaitos: {props.saskaita.numeris} </p>
-            <p>Išrašė: {props.saskaita.imone} </p>
-            <p>Gavėjas: {props.saskaita.gavejas} </p>
-            <p>Israsymo data : {props.saskaita.data} </p>
-</div>
+        
+           
+        <tbody>  
+                    <tr>
+            <td>id : {this.props.saskaita.id} </td>
+            <td>Numeris saskaitos: {this.props.saskaita.numeris} </td>
+            <td>Išrašė: {this.props.saskaita.imone} </td>
+            <td>Gavėjas: {this.props.saskaita.gavejas} </td>
+            <td>Israsymo data : {this.props.saskaita.data} </td>
             
-        </ul>
-    )
-}
 
+           <td> <button onClick={this.SaskaitosTrinimas} >delete</button></td>
+            </tr>
+            </tbody>
+
+            
+        
+    )
+    }
+
+}
 export default saskaita;

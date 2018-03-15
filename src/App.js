@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Saskaitos from './komponentai/Saskaitos'
+import PridetiSaskaita from './komponentai/PridetiSaskaitas'
 
 class App extends Component {
   render() {
@@ -14,7 +15,10 @@ class App extends Component {
         <p className="App-intro">
           
         </p>
+        
      < Saskaitos/>
+     <PridetiSaskaita/>
+
       </div>
     );
   }
